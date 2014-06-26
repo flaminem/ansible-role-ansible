@@ -1,0 +1,3 @@
+---
+# Package states: present or latest
+ansible_pkg_state: present

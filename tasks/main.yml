@@ -1,7 +1,11 @@
 ---
 - name: install needed dependancies for Debian OS family
-  apt: pkg=python-pip,libc6-dev,gcc,python-dev state={{ ansible_pkg_state }}
+  apt: pkg=libc6-dev,python-setuptools,gcc,python-dev state={{ ansible_pkg_state }}
   when: ansible_os_family == 'Debian' or ansible_os_family == 'Linuxmint'
+  tags: ["packages","ansible"]
+
+- name: Ensure pip is installed
+  easy_install: name=pip
   tags: ["packages","ansible"]
 
 - name: install ansible with pip
